@@ -27,11 +27,11 @@
         recipient: csrfData.recipient,
         amount: csrfData.amount,
         token: csrfData.token
-      })
+      }),
+      mode: "no-cors" // Establecer el modo como no-cors
     })
-    .then(response => response.text())
-    .then(data => {
-      console.log("Respuesta de la solicitud:", data);
+    .then(response => {
+      console.log("Solicitud realizada.");
     })
     .catch(error => {
       console.error("Error al enviar la solicitud:", error);
@@ -39,3 +39,4 @@
   </script>
 </body>
 </html>
+
